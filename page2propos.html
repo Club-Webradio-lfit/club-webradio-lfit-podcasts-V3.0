@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>À propos - Club Webradio L.F.I.T</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="logo club(1)-modified.png" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body {
+      font-family: courier prime, courier new;
+      background: #fff8f0;
+      color: #663300;
+      margin: 0;
+      transition: background 0.3s, color 0.3s;
+    }
+    body.night {
+      background: #1e1e2f;
+      color: #e0c97f;
+    }
+    header {
+      background: #ff8c42;
+      color: white;
+      padding: 1em;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 25;
+    }
+    body.night header {
+      background: #ff9c1a;
+      color: #222;
+    }
+    #logo {
+      max-height: 60px;
+    }
+    #content {
+      max-width: 800px;
+      margin: 2em auto;
+      padding: 1em;
+      background: #fff3e0;
+      border-radius: 12px;
+      box-shadow: 0 3px 8px rgba(255,140,66,0.3);
+    }
+    body.night #content {
+      background: #2c2c44;
+      color: #d4b46e;
+    }
+    a {
+      color: #ff8c42;
+      text-decoration: none;
+    }
+    #nightModeToggle {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      background: #ff8c42;
+      border: none;
+      color: white;
+      padding: 0.5em 1em;
+      border-radius: 20px;
+      font-weight: bold;
+      cursor: pointer;
+      z-index: 100;
+    }
+    #nightModeToggle:hover {
+      background: #e67300;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img id="logo" src="logo club(1)-modified.png" alt="Logo Club Webradio L.F.I.T" />
+    <h1>À propos de nous</h1>
+  </header>
+
+  <button id="nightModeToggle">🌛</button>
+
+  <div id="content">
+
+  <p>
+    Le <strong>Club Webradio</strong> a été fondé en <strong>2024</strong> par <strong>Thibault Silvain</strong>, avec le soutien de <strong>Liam Genin Bousquet</strong>, qui occupe le poste de secrétaire, et de <strong>Yuria Ducerisier</strong>, trésorière du club. Depuis sa création, le club s’est imposé comme un espace unique au sein de l’établissement, dédié à l'expression orale, à la créativité sonore et à la diffusion d’informations et de contenus réalisés par les élèves.
+  </p>
+
+  <p>
+    La webradio permet aux membres de s’initier au monde de la radio à travers plusieurs activités : animation, écriture d’émissions, interviews, chroniques, montage audio, création de jingles, gestion de la programmation, ou encore couverture d’événements scolaires. Tous les aspects d’une véritable radio y sont abordés, dans un cadre bienveillant et formateur.
+  </p>
+
+  <p>
+    Le club s’adresse à tous les élèves, quels que soient leur niveau ou leur expérience. Que vous soyez à l’aise au micro, que vous aimiez écrire, que vous soyez attiré par les aspects techniques ou que vous souhaitiez simplement découvrir un nouvel univers, vous y trouverez votre place. Le travail se fait en équipe, dans la bonne humeur, et chaque voix compte.
+  </p>
+
+  <p>
+    La webradio est aussi un outil d’information et de valorisation de la vie scolaire. Elle donne la parole aux élèves, aux enseignants, aux personnels, et permet de partager ce qui se vit dans et autour du lycée. C’est un espace d’expression libre, mais aussi de réflexion, de débat, et de création sonore.
+  </p>
+
+  <h3>📍 Horaires et lieu :</h3>
+  <ul>
+    <li><strong>Jeudi</strong> de 12h30 à 14h00</li>
+    <li><strong>Vendredi</strong> de 11h00 à 12h00</li>
+    <li>Salle <strong>A301</strong></li>
+  </ul>
+
+  <p>
+    Vous pouvez venir découvrir le club à tout moment de l’année. Il suffit de pousser la porte de la salle A301 aux horaires indiqués, et de vous laisser embarquer dans l’univers de la radio. Venez comme vous êtes, avec vos idées, vos envies, ou juste votre curiosité !
+  </p>
+
+  <p><strong>🎙️ Le Club Webradio n’attend plus que vous !</strong></p>
+</section>
+
+    <p>📧 Pour nous contacter : <a href="mailto:club_webradio@lfitokyo.org">club_webradio@lfitokyo.org</a></p>
+    <br>
+    <p><a href="https://club-webradio-lfit.github.io/club-webradio-lfit-podcasts-V3.0/">← Retour à la page d’accueil</a></p>
+  </div>
+
+  <script>
+    const nightModeToggle = document.getElementById('nightModeToggle');
+    nightModeToggle.addEventListener('click', () => {
+      document.body.classList.toggle('night');
+    });
+  </script>
+
+</body>
+</html>
