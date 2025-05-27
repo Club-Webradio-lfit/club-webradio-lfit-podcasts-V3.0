@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>À propos - Club Webradio L.F.I.T</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="logo club(1)-modified.png" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body {
+      font-family: courier prime, courier new;
+      background: #fff8f0;
+      color: #663300;
+      margin: 0;
+      transition: background 0.3s, color 0.3s;
+    }
+    body.night {
+      background: #1e1e2f;
+      color: #e0c97f;
+    }
+    header {
+      background: #ff8c42;
+      color: white;
+      padding: 1em;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 25;
+    }
+    body.night header {
+      background: #ff9c1a;
+      color: #222;
+    }
+    #logo {
+      max-height: 60px;
+    }
+    #content {
+      max-width: 800px;
+      margin: 2em auto;
+      padding: 1em;
+      background: #fff3e0;
+      border-radius: 12px;
+      box-shadow: 0 3px 8px rgba(255,140,66,0.3);
+    }
+    body.night #content {
+      background: #2c2c44;
+      color: #d4b46e;
+    }
+    a {
+      color: #ff8c42;
+      text-decoration: none;
+    }
+    #nightModeToggle {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      background: #ff8c42;
+      border: none;
+      color: white;
+      padding: 0.5em 1em;
+      border-radius: 20px;
+      font-weight: bold;
+      cursor: pointer;
+      z-index: 100;
+    }
+    #nightModeToggle:hover {
+      background: #e67300;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img id="logo" src="logo club(1)-modified.png" alt="Logo Club Webradio L.F.I.T" />
+    <h1>À propos du Club Webradio</h1>
+  </header>
+
+  <button id="nightModeToggle">Mode Nuit</button>
+
+  <div id="content">
+    <p>Bienvenue sur la page "À propos" du <strong>Club Webradio du L.F.I.T</strong> !</p>
+    <p>Ce club est animé par des élèves passionnés, qui réalisent des podcasts, des interviews, des reportages et bien plus encore.</p>
+    <p>Rejoignez-nous si vous voulez apprendre à enregistrer, monter, et publier vos créations audio !</p>
+    <p>📧 Pour nous contacter : <a href="mailto:club_webradio@lfitokyo.org">club_webradio@lfitokyo.org</a></p>
+    <br>
+    <p><a href="index.html">← Retour à la page d’accueil</a></p>
+  </div>
+
+  <script>
+    const nightModeToggle = document.getElementById('nightModeToggle');
+    nightModeToggle.addEventListener('click', () => {
+      document.body.classList.toggle('night');
+    });
+  </script>
+
+</body>
+</html>
