@@ -132,9 +132,9 @@
   </div>
 
   <script>
-      nightModeToggle.onclick = () => {
-    document.body.classList.toggle('night');
-    nightModeToggle.textContent = document.body.classList.contains('night') ? '🌞' : '🌛';
+       const nightModeToggle = document.getElementById('nightModeToggle');
+       nightModeToggle.addEventListener('click', () => {
+       document.body.classList.toggle('night');
     });
   </script>
 
