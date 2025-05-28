@@ -87,7 +87,7 @@
     <img id="logo" src="logo club(1)-modified.png" alt="Logo Club Webradio L.F.I.T" />
     <h1>À propos de nous</h1>
      <div id="topButtons">
-  <a href="index.html" id="aboutLink">Nos Podcasts📻</a>
+  <a href="index.html" id="aboutLink">Nos Podcasts 📻</a>
 </div>
   
   </header>
@@ -132,9 +132,9 @@
   </div>
 
   <script>
-    const nightModeToggle = document.getElementById('nightModeToggle');
-    nightModeToggle.addEventListener('click', () => {
-      document.body.classList.toggle('night');
+      nightModeToggle.onclick = () => {
+    document.body.classList.toggle('night');
+    nightModeToggle.textContent = document.body.classList.contains('night') ? '🌞' : '🌛';
     });
   </script>
 
