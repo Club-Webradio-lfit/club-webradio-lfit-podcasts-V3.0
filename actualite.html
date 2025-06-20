@@ -4,7 +4,13 @@
   <meta charset="utf-8">
   <title>À la une</title>
   <link rel="icon" type="image/png" sizes="32x32" href="logo club(1)-modified.png" />
-  <script src="script.js"></script>
+  <script src="script.js">
+  };
+  nightModeToggle.onclick = () => {
+    document.body.classList.toggle('night');
+    nightModeToggle.textContent = document.body.classList.contains('night') ? '🌞' : '🌛';
+  };
+</script>
 </head>
 <body>
  <header>
@@ -20,7 +26,7 @@
   header {
     background: #ff8c42;
     color: white;
-    padding: 1em;
+    padding: 0;
     text-align: center;
     position: sticky;
     top: 0;
@@ -57,7 +63,6 @@
    #aboutLink {
     position: fixed;
       font-family: courier new;
-      top: 60px;
       right: 10px;
       background:#ffe5b4;
       border: none;
