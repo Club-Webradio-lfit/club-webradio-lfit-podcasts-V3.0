@@ -2,8 +2,8 @@
 <html lang="fr">
 <head>
   <meta charset="utf-8">
-  <title>Titre de la page</title>
-  <link rel="stylesheet" href="style.css">
+  <title>À la une</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="logo club(1)-modified.png" />
   <script src="script.js"></script>
 </head>
 <body>
@@ -11,10 +11,86 @@
   <img id="logo" src="logo club(1)-modified.png" alt="Logo Club Webradio L.F.I.T" />
   <h1>Club Webradio L.F.I.T</h1>
 </header>
+  <div id="topButtons">
+  <a href="page2apropos.html" id="aboutLink">À propos ℹ️</a>
+  <button id="nightModeToggle">🌛</button> 
+  <a href="actualite.html" id="aboutLink3">À la une 📢</a>
+</div>
   <style>
+  header {
+    background: #ff8c42;
+    color: white;
+    padding: 1em;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 25;
+    box-shadow: 0 3px 6px rgba(255,140,66,0.5);
+   }
+  body.night header {
+    background: #ff9c1a;
+    color: #222;
+  }
   #logo {
-    width: auto;
-    height: 70px;
+    max-height: 60px;
+    margin-bottom: 0.5em;
+   }
+  #aboutLink3{
+      position: fixed;
+      font-family: courier new;
+      top:95px;
+      right: 10px;
+      background:#ffe5b4;
+      border: none;
+      color: white;
+      padding: 0.5em 1em;
+      border-radius: 20px;
+      font-weight: bold;
+      text-decoration: none;
+      color: #663300;
+      cursor: pointer;
+      z-index: 100;
+   }
+  #aboutLink3:hover {
+    background: #e67300;
+  }
+   #aboutLink {
+    position: fixed;
+      font-family: courier new;
+      top: 60px;
+      right: 10px;
+      background:#ffe5b4;
+      border: none;
+      color: white;
+      padding: 0.5em 1em;
+      border-radius: 20px;
+      font-weight: bold;
+      text-decoration: none;
+      color: #663300;
+      cursor: pointer;
+      z-index: 100;
+    }
+    #aboutLink:hover {
+    background: #e67300;
+  }
+  #nightModeToggle {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background: #ffe5b4;
+    border: none;
+    color: white;
+    padding: 0.5em 1em;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size:60px
+    cursor: pointer;
+    z-index: 100;
+    box-shadow: 0 3px 6px rgba(255,140,66,0.8);
+    transition: background 0.3s ease;
+  }
+  #nightModeToggle:hover {
+    background: #e67300;
   }
 </style>
 
