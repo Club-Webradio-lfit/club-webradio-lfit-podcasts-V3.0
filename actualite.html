@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <title>À la une</title>
   <link rel="icon" type="image/png" sizes="32x32" href="logo club(1)-modified.png" />
-  <p><strong>Page sous construction merci de votre comprehenssion</strong></p>
+  <p id=messagePrev><strong>Page sous construction merci de votre comprehenssion</strong></p>
   <script>
   };
  
@@ -25,12 +25,19 @@
   <a href="actualite.html" id="aboutLink3">À la une 📢</a>
 </div>
   <style>
+    #messagePrev{
+    text-align: center;
+    color: orange;
+    font-family: Courrier New;
+    top: 200px;
+    }
+    
     header{
     background: #ff8c42;
     color: white;
     padding: 1em;
     text-align: center;
-    position: sticky;
+    position: relative;
     top: 0;
     z-index: 25;
     box-shadow: 0 3px 6px rgba(255,140,66,0.5);
