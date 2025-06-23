@@ -4,17 +4,16 @@
   <meta charset="utf-8">
   <title>À la une</title>
   <link rel="icon" type="image/png" sizes="32x32" href="logo club(1)-modified.png" />
-  <p id=messagePrev><strong>Page sous construction merci de votre comprehenssion</strong></p>
-  <script>
-  };
- 
-  nightModeToggle.onclick = () => {
-  document.body.classList.toggle('night');
-  nightModeToggle.textContent = document.body.classList.contains('night') ? '🌞' : '🌛';
-  };
-</script>
 </head>
 <body>
+<p id=messagePrev><strong>Page sous construction merci de votre comprehenssion</strong></p>
+  <script>
+    const nightModeToggle = document.getElementById("nightModeToggle");
+    nightModeToggle.onclick = () => {
+      document.body.classList.toggle('night');
+      nightModeToggle.textContent = document.body.classList.contains('night') ? '🌞' : '🌛';
+    };
+  </script>
  <header>
   <img id="logo" src="logo club(1)-modified.png" alt="Logo Club Webradio L.F.I.T" />
   <h1>Club Webradio L.F.I.T</h1>
@@ -25,15 +24,19 @@
   <a href="actualite.html" id="aboutLink3">À la une 📢</a>
 </div>
   <style> 
+    body{
+    margin:0;
+    }
     header{
     background: #ff8c42;
     color: white;
-    padding: 1px;
+    padding: 1em;
     text-align: center;
     position: sticky;
     top: 0;
     z-index: 25;
     box-shadow: 0 3px 6px rgba(255,140,66,0.5);
+    width: 100%;
    }
    #messagePrev{
     text-align: center;
