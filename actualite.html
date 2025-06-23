@@ -7,13 +7,6 @@
 </head>
 <body>
 <p id=messagePrev><strong>Page sous construction merci de votre comprehenssion</strong></p>
-  <script>
-    const nightModeToggle = document.getElementById("nightModeToggle");
-    nightModeToggle.onclick = () => {
-      document.body.classList.toggle('night');
-      nightModeToggle.textContent = document.body.classList.contains('night') ? '🌞' : '🌛';
-    };
-  </script>
  <header>
   <img id="logo" src="logo club(1)-modified.png" alt="Logo Club Webradio L.F.I.T" />
   <h1>Club Webradio L.F.I.T</h1>
@@ -110,6 +103,12 @@
     background: #e67300;
   }
 </style>
-
+<script>
+    const nightModeToggle = document.getElementById("nightModeToggle");
+    nightModeToggle.onclick = () => {
+      document.body.classList.toggle('night');
+      nightModeToggle.textContent = document.body.classList.contains('night') ? '🌞' : '🌛';
+    };
+  </script>
 </body>
 </html>
