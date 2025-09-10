@@ -404,6 +404,10 @@
     Votre navigateur ne supporte pas la balise audio.
   </audio>
 </section>
+ 
+<div id="loader" style="display:none; text-align:center; margin:1em;">
+⏳ Chargement...
+</div>
 
 <script>
   const RSS_URL = "https://audioblog.arteradio.com/blog/237102/rss";
@@ -589,36 +593,12 @@ function loadRSS() {
       });
 
       // Section "À la une"
-      if (episodes.length > 0) {
-        const lastEp = episodes[0];
-        highlightSection.style.display = 'flex';
-        highlightImage.src = lastEp.image || '';
-        highlightImage.style.display = lastEp.image ? 'block' : 'none';
-        highlightTitle.textContent = lastEp.title.replace(/\[[^\]]+\]/, '').trim();
-        highlightDesc.textContent = lastEp.description || '';
-        highlightPlayBtn.onclick = () => {
-          mainPlayer.src = lastEp.enclosureUrl;
-          mainPlayer.play();
-        };
-        highlightDownloadBtn.onclick = () => {
-          window.open(lastEp.enclosureUrl, '_blank');
-        };
-      } else {
-        highlightSection.style.display = 'none';
-      }
-
-      renderPlaylists();
-      renderEpisodes();
-    })
-    .catch(e => {
-      episodesList.innerHTML = '<li>Erreur lors du chargement du flux RSS.</li>';
-      console.error(e);
-    })
+    
     .finally(() => {
       document.getElementById("loader")?.style.display = "none"; // 🔹 cacher le loader si existe
     });
 }
-      });
+  
 
       // --- Mise à jour de la section "À la une" ---
       
@@ -702,6 +682,7 @@ function showApp(email = null) {
 
 </body>
 </html>
+
 
 
 
