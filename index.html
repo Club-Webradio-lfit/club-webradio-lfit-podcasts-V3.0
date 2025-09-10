@@ -340,19 +340,20 @@
   #aboutLink3:hover {
     background: #e67300;
   }
-  #loader {
+ #loader {
   position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(255,248,240,0.95);
-  display: flex;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: white;
+  display: none; /* 🔹 très important */
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-family: courier prime, courier new;
-  font-size: 20px;
-  z-index: 200;
-  color: #663300;
+  font-family: Arial, sans-serif;
+  font-size: 18px;
+  z-index: 9999;
 }
 body.night #loader {
   background: rgba(30,30,47,0.95);
@@ -739,6 +740,7 @@ body.night #loader {
 
 </body>
 </html>
+
 
 
 
