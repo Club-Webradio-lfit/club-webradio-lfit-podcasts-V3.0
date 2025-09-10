@@ -340,38 +340,8 @@
   #aboutLink3:hover {
     background: #e67300;
   }
- #loader {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: white;
-  display: none; /* 🔹 très important */
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  font-family: Arial, sans-serif;
-  font-size: 18px;
-  z-index: 9999;
-}
-body.night #loader {
-  background: rgba(30,30,47,0.95);
-  color: #e0c97f;
-}
-.spinner {
-  border: 6px solid #f3f3f3;
-  border-top: 6px solid #ff8c42;
-  border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  animation: spin 1s linear infinite;
-  margin-bottom: 15px;
-}
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
+
+
   
 </style>
 </head>
@@ -426,11 +396,6 @@ body.night #loader {
   <div id="playlists"></div>
   <ul id="episodesList"></ul>
   <button id="logoutBtn" style="display:none;">Se déconnecter</button>
-</div>
-
-  <div id="loader" style="display:none;">
-  <div class="spinner"></div>
-  <p>Chargement du flux...</p>
 </div>
 
   <section id="playerSection">
@@ -593,33 +558,38 @@ body.night #loader {
       episodesList.appendChild(li);
     });
   }
+function loadRSS() {
+  fetch(PROXY_URL)
+    .then(resp => resp.json())
+    .then(data => {
+      const parser = new DOMParser();
+      const xml = parser.parseFromString(data.contents, "text/xml");
+      const items = xml.querySelectorAll('item');
+      episodes = [];
 
-  function loadRSS() {
-    fetch(PROXY_URL)
-      .then(resp => resp.json())
-      .then(data => {
-        const parser = new DOMParser();
-        const xml = parser.parseFromString(data.contents, "text/xml");
-        const items = xml.querySelectorAll('item');
-        episodes = [];
-        items.forEach(item => {
-          const title = item.querySelector('title')?.textContent || '';
-          const description = item.querySelector('description')?.textContent || '';
-          const pubDate = item.querySelector('pubDate')?.textContent || '';
-          const enclosure = item.querySelector('enclosure');
-          const enclosureUrl = enclosure ? enclosure.getAttribute('url') : '';
-          let image = '';
-          const itunesImage = item.querySelector('itunes\\:image');
-          if(itunesImage) {
-            image = itunesImage.getAttribute('href');
-          } else {
-            const mediaContent = item.querySelector('media\\:content');
-            if(mediaContent) image = mediaContent.getAttribute('url');
-          }
-          const link = item.querySelector('link')?.textContent || '';
-          episodes.push({ title, description, pubDate, enclosureUrl, image, link });
-        });
+      items.forEach(item => {
+        const title = item.querySelector('title')?.textContent || '';
+        const description = item.querySelector('description')?.textContent || '';
+        const pubDate = item.querySelector('pubDate')?.textContent || '';
+        const enclosure = item.querySelector('enclosure');
+        const enclosureUrl = enclosure ? enclosure.getAttribute('url') : '';
+        let image = '';
 
+        const itunesImage = item.querySelector('itunes\\:image');
+        if (itunesImage) {
+          image = itunesImage.getAttribute('href');
+        } else {
+          const mediaContent = item.querySelector('media\\:content');
+          if (mediaContent) image = mediaContent.getAttribute('url');
+        }
+
+        const link = item.querySelector('link')?.textContent || '';
+        episodes.push({ title, description, pubDate, enclosureUrl, image, link });
+      });
+
+      // --- Mise à jour de la section "À la une" ---
+      
+ 
         // Section à la une : dernier podcast
         if(episodes.length > 0) {
           const lastEp = episodes[0];
@@ -744,6 +714,7 @@ body.night #loader {
 
 </body>
 </html>
+
 
 
 
