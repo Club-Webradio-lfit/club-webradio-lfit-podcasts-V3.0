@@ -560,6 +560,8 @@
     });
   }
 function loadRSS() {
+  document.getElementById("loader")?.style.display = "flex"; // 🔹 montrer le loader si existe
+
   fetch(PROXY_URL)
     .then(resp => resp.json())
     .then(data => {
@@ -575,7 +577,6 @@ function loadRSS() {
         const enclosure = item.querySelector('enclosure');
         const enclosureUrl = enclosure ? enclosure.getAttribute('url') : '';
         let image = '';
-
         const itunesImage = item.querySelector('itunes\\:image');
         if (itunesImage) {
           image = itunesImage.getAttribute('href');
@@ -583,9 +584,40 @@ function loadRSS() {
           const mediaContent = item.querySelector('media\\:content');
           if (mediaContent) image = mediaContent.getAttribute('url');
         }
-
         const link = item.querySelector('link')?.textContent || '';
         episodes.push({ title, description, pubDate, enclosureUrl, image, link });
+      });
+
+      // Section "À la une"
+      if (episodes.length > 0) {
+        const lastEp = episodes[0];
+        highlightSection.style.display = 'flex';
+        highlightImage.src = lastEp.image || '';
+        highlightImage.style.display = lastEp.image ? 'block' : 'none';
+        highlightTitle.textContent = lastEp.title.replace(/\[[^\]]+\]/, '').trim();
+        highlightDesc.textContent = lastEp.description || '';
+        highlightPlayBtn.onclick = () => {
+          mainPlayer.src = lastEp.enclosureUrl;
+          mainPlayer.play();
+        };
+        highlightDownloadBtn.onclick = () => {
+          window.open(lastEp.enclosureUrl, '_blank');
+        };
+      } else {
+        highlightSection.style.display = 'none';
+      }
+
+      renderPlaylists();
+      renderEpisodes();
+    })
+    .catch(e => {
+      episodesList.innerHTML = '<li>Erreur lors du chargement du flux RSS.</li>';
+      console.error(e);
+    })
+    .finally(() => {
+      document.getElementById("loader")?.style.display = "none"; // 🔹 cacher le loader si existe
+    });
+}
       });
 
       // --- Mise à jour de la section "À la une" ---
@@ -617,39 +649,9 @@ function loadRSS() {
         episodesList.innerHTML = '<li>Erreur lors du chargement du flux RSS.</li>';
         console.error(e);
       });
-  }
-
-  function loadRSS() {
-  document.getElementById("loader").style.display = "flex"; // 🔹 montrer le loader
-  fetch(PROXY_URL)
-    .then(resp => resp.json())
-    .then(data => {
-      const parser = new DOMParser();
-      const xml = parser.parseFromString(data.contents, "text/xml");
-      const items = xml.querySelectorAll('item');
-      episodes = [];
-      items.forEach(item => {
-        const title = item.querySelector('title')?.textContent || '';
-        const description = item.querySelector('description')?.textContent || '';
-        const pubDate = item.querySelector('pubDate')?.textContent || '';
-        const enclosure = item.querySelector('enclosure');
-        const enclosureUrl = enclosure ? enclosure.getAttribute('url') : '';
-        let image = '';
-        const itunesImage = item.querySelector('itunes\\:image');
-        if(itunesImage) {
-          image = itunesImage.getAttribute('href');
-        } else {
-          const mediaContent = item.querySelector('media\\:content');
-          if(mediaContent) image = mediaContent.getAttribute('url');
-        }
-        const link = item.querySelector('link')?.textContent || '';
-        episodes.push({ title, description, pubDate, enclosureUrl, image, link });
-        }
-       .finally(() => {
-       document.getElementById("loader").style.display = "none"; 
-        });
 
 
+            })
       // Section à la une : dernier podcast
       if(episodes.length > 0) {
         const lastEp = episodes[0];
@@ -725,6 +727,7 @@ function showApp(email = null) {
 
 </body>
 </html>
+
 
 
 
