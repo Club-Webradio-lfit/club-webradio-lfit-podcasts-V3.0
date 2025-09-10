@@ -680,6 +680,16 @@ function loadRSS() {
       document.getElementById("loader").style.display = "none"; // 🔹 cacher le loader
     });
 }
+function showApp(email = null) {
+  userEmail = email;
+  loginSection.style.display = "none";   // cacher la zone login
+  app.style.display = "block";           // afficher l'app
+  logoutBtn.style.display = "block";     // afficher bouton logout
+  welcomeMsg.textContent = email 
+    ? `Bienvenue, ${email} 👋`
+    : "Bienvenue 👋 (Accès invité)";
+  loadRSS(); // charge les épisodes
+}
 
   }
 
@@ -715,6 +725,7 @@ function loadRSS() {
 
 </body>
 </html>
+
 
 
 
