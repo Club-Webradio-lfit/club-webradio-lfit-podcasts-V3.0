@@ -623,32 +623,7 @@ function loadRSS() {
       // --- Mise à jour de la section "À la une" ---
       
  
-        // Section à la une : dernier podcast
-        if(episodes.length > 0) {
-          const lastEp = episodes[0];
-          highlightSection.style.display = 'flex';
-          highlightImage.src = lastEp.image || '';
-          highlightImage.style.display = lastEp.image ? 'block' : 'none';
-          highlightTitle.textContent = lastEp.title.replace(/\[[^\]]+\]/, '').trim();
-          highlightDesc.textContent = lastEp.description || '';
-          highlightPlayBtn.onclick = () => {
-            mainPlayer.src = lastEp.enclosureUrl;
-            mainPlayer.play();
-          };
-          highlightDownloadBtn.onclick = () => {
-            window.open(lastEp.enclosureUrl, '_blank');
-          };
-        } else {
-          highlightSection.style.display = 'none';
-        }
-
-        renderPlaylists();
-        renderEpisodes();
-      })
-      .catch(e => {
-        episodesList.innerHTML = '<li>Erreur lors du chargement du flux RSS.</li>';
-        console.error(e);
-      });
+       
 
 
             })
@@ -693,7 +668,7 @@ function showApp(email = null) {
   loadRSS(); // charge les épisodes
 }
 
-  }
+  
 
   loginBtn.onclick = () => {
     const email = emailInput.value.trim();
@@ -727,6 +702,7 @@ function showApp(email = null) {
 
 </body>
 </html>
+
 
 
 
