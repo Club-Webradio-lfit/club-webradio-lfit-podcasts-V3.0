@@ -673,7 +673,11 @@ body.night #loader {
         }
         const link = item.querySelector('link')?.textContent || '';
         episodes.push({ title, description, pubDate, enclosureUrl, image, link });
-      });
+        }
+       .finally(() => {
+       document.getElementById("loader").style.display = "none"; 
+        });
+
 
       // Section à la une : dernier podcast
       if(episodes.length > 0) {
@@ -740,6 +744,7 @@ body.night #loader {
 
 </body>
 </html>
+
 
 
 
