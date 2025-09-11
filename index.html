@@ -562,7 +562,7 @@
 
       episodesList.appendChild(li);
     });
-  }
+  
 function loadRSS() {
   document.getElementById("loader")?.style.display = "flex"; // 🔹 montrer le loader si existe
 
@@ -592,23 +592,8 @@ function loadRSS() {
         episodes.push({ title, description, pubDate, enclosureUrl, image, link });
       });
 
-      // Section "À la une"
-    
-    .finally(() => {
-      document.getElementById("loader")?.style.display = "none"; // 🔹 cacher le loader si existe
-    });
-}
-  
-
-      // --- Mise à jour de la section "À la une" ---
-      
- 
-       
-
-
-            })
       // Section à la une : dernier podcast
-      if(episodes.length > 0) {
+      if (episodes.length > 0) {
         const lastEp = episodes[0];
         highlightSection.style.display = 'flex';
         highlightImage.src = lastEp.image || '';
@@ -637,6 +622,7 @@ function loadRSS() {
       document.getElementById("loader").style.display = "none"; // 🔹 cacher le loader
     });
 }
+  }
 function showApp(email = null) {
   userEmail = email;
   loginSection.style.display = "none";   // cacher la zone login
@@ -682,6 +668,7 @@ function showApp(email = null) {
 
 </body>
 </html>
+
 
 
 
